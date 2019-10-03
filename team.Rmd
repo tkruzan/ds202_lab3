@@ -1,0 +1,11 @@
+---
+title: "Lab 3"
+author: "Tyler Kruzan & Cameron Stocker"
+date: "10/3/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
