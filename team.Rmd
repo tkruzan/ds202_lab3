@@ -1,11 +1,71 @@
 ---
-title: "Lab 3"
-author: "Tyler Kruzan & Cameron Stocker"
-date: "10/3/2019"
+title: 'Template - Lab 3: Exploring Happiness'
+subtitle: "Due: Thursday 10/03/2019 by 10 pm"
+author: "Lynna Chu"
+
+date: "09/26/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+
+## Background
+
+The General Social Survey (GSS) has been run by NORC every other year since 1972 to keep track of current opinions across the United States. We are working with an excerpt of the dataset that covers years 1972 to 2016. The variable names along with a brief description are as follows: 
+
+| Variable      | Description   |    
+| ------------- |:-------------:| 
+| Year          | Year for this respondent | 
+| Age           | Age of respondent | 
+| Sex           | Sex of respondent     | 
+|....           | .....      | 
+
+Now it's important to understand what each column stands for. You can find a codebook with explanations for each of the variables at https://gssdataexplorer.norc.org/
+
+## Data Cleaning 
+
+Initial exploration revealed that some data processing was needed before we could proceed with further visualization. All missing values were encoded with 'NA' as follows:
+```{r}
+happy <- readRDS("HAPPY.rds")
+names(happy) = tolower(names(happy))
+head(happy)
+happy[happy == "NA"] = NA
+happy[happy == "IAP"] = NA
+happy[happy == "DK"] = NA
 ```
+
+In total there were `....` number of missing values for the following `....` variables. 
+
+Variables were also cast into the correct type in order to ease data visualization. This was done by:
+```{r}
+happy$age[happy$age == "89 OR OLDER"] = "89"
+happy$age = as.numeric(happy$age)
+factor(happy$happy)
+factor(happy$sex)
+factor(happy$marital)
+factor(happy$degree)
+factor(happy$finrela)
+factor(happy$health)
+factor(happy$wtssall)
+factor(happy$partyid)
+factor(happy$polviews)
+```
+
+Factors were also organized into meaningful order as follows: 
+```{r}
+#insert relevant R code for Q3 here
+```
+
+
+## Data Exploration 
+
+Two variables of interest are `...` and `...`. Their distributions are as follow: 
+```{r}
+#insert relevant R code here
+#include graphics. DESCRIBE your plot in context. Make sure it includes axis labels and appropriate title. 
+```
+
+The distribution for `...` is `....`, suggesting that `....` 
+
+
+
 
