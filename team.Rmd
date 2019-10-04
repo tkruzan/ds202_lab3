@@ -17,7 +17,14 @@ The General Social Survey (GSS) has been run by NORC every other year since 1972
 | Year          | Year for this respondent | 
 | Age           | Age of respondent | 
 | Sex           | Sex of respondent     | 
-|....           | .....      | 
+| Happy         | General Happiness      | 
+| Marital       | Marital Status     |
+| Degree        | Respondent's highest degree  |
+| Finrela       | Opinion of family income  |
+| Health        | Condition of health  |
+| Wtssall       | Weight of variables  |
+| Partyid       | Political party affiliation  |
+| Polviews      | Think of self as liberal or conservative  |
 
 Now it's important to understand what each column stands for. You can find a codebook with explanations for each of the variables at https://gssdataexplorer.norc.org/
 
@@ -31,9 +38,21 @@ head(happy)
 happy[happy == "NA"] = NA
 happy[happy == "IAP"] = NA
 happy[happy == "DK"] = NA
+length(which(is.na(happy)))
+length(which(is.na(happy$happy)))
+length(which(is.na(happy$year)))
+length(which(is.na(happy$age)))
+length(which(is.na(happy$sex)))
+length(which(is.na(happy$marital)))
+length(which(is.na(happy$degree)))
+length(which(is.na(happy$finrela)))
+length(which(is.na(happy$health)))
+length(which(is.na(happy$wtssall)))
+length(which(is.na(happy$partyid)))
+length(which(is.na(happy$polviews)))
 ```
 
-In total there were `....` number of missing values for the following `....` variables. 
+In total there were 36391 number of missing values for the following variables: happy, age, marital, degree, finrela, partyid, polviews. 
 
 Variables were also cast into the correct type in order to ease data visualization. This was done by:
 ```{r}
