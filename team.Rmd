@@ -39,15 +39,14 @@ Variables were also cast into the correct type in order to ease data visualizati
 ```{r}
 happy$age[happy$age == "89 OR OLDER"] = "89"
 happy$age = as.numeric(happy$age)
-factor(happy$happy)
-factor(happy$sex)
-factor(happy$marital)
-factor(happy$degree)
-factor(happy$finrela)
-factor(happy$health)
-factor(happy$wtssall)
-factor(happy$partyid)
-factor(happy$polviews)
+happy$happy = factor(happy$happy)
+happy$sex = factor(happy$sex)
+happy$marital = factor(happy$marital)
+happy$degree = factor(happy$degree)
+happy$finrela = factor(happy$finrela)
+happy$health = factor(happy$health)
+happy$partyid = factor(happy$partyid)
+happy$polviews = factor(happy$polviews)
 ```
 
 Factors were also organized into meaningful order as follows: 
@@ -68,6 +67,8 @@ ggplot(happy, aes(age)) + geom_histogram(bins = 20) + labs(title = "Histogram of
 The distribution for happiness has a lot more people who are pretty happy or very happy compared to not too happy, suggesting that most people are fairly happy with their lives. There is an approximately even distribution of sex within each level of happiness, suggesting neither sex is more happy than the other.
 
 The distibution for age is a skew right. Suggesting that more people are of the age 20-40 than those in the years older than that.
+
+
 
 
 
