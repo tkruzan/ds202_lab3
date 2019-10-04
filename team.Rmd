@@ -58,13 +58,16 @@ Factors were also organized into meaningful order as follows:
 
 ## Data Exploration 
 
-Two variables of interest are `...` and `...`. Their distributions are as follow: 
+Two variables of interest are happiness and age. Their distributions are as follow: 
 ```{r}
-#insert relevant R code here
-#include graphics. DESCRIBE your plot in context. Make sure it includes axis labels and appropriate title. 
+library(ggplot2)
+ggplot(happy, aes(happy, fill = sex)) + geom_bar() + labs(title = "Barchart of Happiness", x = "Happy", y = "Count")
+ggplot(happy, aes(age)) + geom_histogram(bins = 20) + labs(title = "Histogram of Age", x = "Age", y = "Count")
 ```
 
-The distribution for `...` is `....`, suggesting that `....` 
+The distribution for happiness has a lot more people who are pretty happy or very happy compared to not too happy, suggesting that most people are fairly happy with their lives. There is an approximately even distribution of sex within each level of happiness, suggesting neither sex is more happy than the other.
+
+The distibution for age is a skew right. Suggesting that more people are of the age 20-40 than those in the years older than that.
 
 
 
