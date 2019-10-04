@@ -1,12 +1,15 @@
 ---
-title: 'Template - Lab 3: Exploring Happiness'
+title: 'Lab 3: Exploring Happiness'
 subtitle: "Due: Thursday 10/03/2019 by 10 pm"
-author: "Lynna Chu"
+author: "Cameron Stocker and Tyler Kruzan"
 
-date: "09/26/2019"
+date: "10/3/2019"
 output: html_document
 ---
 
+Owner's username: tkruzan
+Partner's username: CameronStocker
+repo name: ds202_lab3
 
 ## Background
 
@@ -70,7 +73,8 @@ happy$polviews = factor(happy$polviews)
 
 Factors were also organized into meaningful order as follows: 
 ```{r}
-#insert relevant R code for Q3 here
+happy$degree = factor(happy$degree, levels(happy$degree)[c(5,3,4,1,2)])
+happy$marital = reorder(happy$marital, happy$age, FUN = mean)
 ```
 
 
@@ -87,7 +91,31 @@ The distribution for happiness has a lot more people who are pretty happy or ver
 
 The distibution for age is a skew right. Suggesting that more people are of the age 20-40 than those in the years older than that.
 
+Here we look at the relationship between happiness and age.
 
+```{r}
+ggplot(happy, aes(happy, age, color = happy)) + geom_boxplot() + coord_flip()
+```
+
+Here you can see a boxplot comparing levels of happiness relative to their age. Although we can't come to any concrete conclusions, it does appear that those who are very happy and not too happy might be slightly older than those who are pretty happy. This could be due to the fact those that are younger are still figuring out life and don't really know either way.
+
+Next we look at the relationship between happiness and degree.
+
+```{r}
+ggplot(happy, aes(happy, fill = happy)) + facet_wrap(~degree) + geom_bar() + labs(title = "Barchart of Happiness by Degree")
+```
+
+Here you can see that most people are pretty happy, regardless of their degree. The distribution between not too happy, pretty happy, and very happy look very similar in each graph. This tells us that someone's level of education doesn't necessarily correlate to their level of happiness.
+
+Lastly we looked at happiness relative to the year and weight of the variables.
+
+```{r}
+ggplot(happy, aes(year, wtssall, color = happy)) + geom_point()
+```
+
+There were not too many signifant findings in this graph. The only thing that stands out would be that we discovered that most of the NA observations for happiness came from around the year 2004.
+
+Overall, we were unable to find any variables that we can confidently say correlated with happiness. 
 
 
 
